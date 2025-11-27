@@ -13,17 +13,15 @@ class CustomUser(AbstractUser):
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     
-    def __str__(self):
-        return f"{self.username} ({self.user_type})"
-    
-    @property
-    def is_admin(self):
+    # Remove the problematic properties and use methods instead
+    def is_admin_user(self):
         return self.user_type == 'admin'
     
-    @property
-    def is_staff(self):
+    def is_staff_user(self):
         return self.user_type == 'staff'
     
-    @property
-    def is_client(self):
+    def is_client_user(self):
         return self.user_type == 'client'
+    
+    def __str__(self):
+        return f"{self.username} ({self.user_type})"
