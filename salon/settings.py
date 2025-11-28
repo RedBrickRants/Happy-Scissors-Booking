@@ -106,6 +106,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication', #enables session auth for browsable API (debug stuff)
+        'rest_framework.authentication.TokenAuthentication',
     ],
     #allows only authenticated users to access the API
     'DEFAULT_PERMISSION_CLASSES': [
