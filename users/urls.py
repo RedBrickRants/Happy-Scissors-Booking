@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('client-profile/', views.client_profile, name='client-profile'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
+    path('test/', views.simple_test, name='simple-test'),
 ]

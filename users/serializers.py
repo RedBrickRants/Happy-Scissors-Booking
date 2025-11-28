@@ -48,7 +48,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             Client.objects.create(user=user)
         return user
     
-class UserLoginSerializer(serializers.ModelSerializer):
+class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
 

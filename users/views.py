@@ -119,3 +119,14 @@ def client_profile(request):
     
     serializer = ClientProfileSerializer(request.user.client)
     return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def simple_test(request):
+    """Simple test endpoint to check if server is working"""
+    return Response({
+        'message': 'Server is running!',
+        'user_authenticated': request.user.is_authenticated,
+        'username': str(request.user) if request.user.is_authenticated else 'Anonymous'
+    })
+
